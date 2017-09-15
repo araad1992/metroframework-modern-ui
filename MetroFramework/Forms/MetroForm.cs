@@ -466,26 +466,26 @@ namespace MetroFramework.Forms
 
         protected override void OnLoad(EventArgs e)
         {
-            base.OnLoad(e);
+            //base.OnLoad(e);
 
-            if (DesignMode) return;
+            //if (DesignMode) return;
 
-            switch (StartPosition)
-            {
-                case FormStartPosition.CenterParent:
-                    CenterToParent();
-                    break;
-                case FormStartPosition.CenterScreen:
-                    if (IsMdiChild)
-                    {
-                        CenterToParent();
-                    }
-                    else
-                    {
-                        CenterToScreen();
-                    }
-                    break;
-            }
+            //switch (StartPosition)
+            //{
+            //    case FormStartPosition.CenterParent:
+            //        CenterToParent();
+            //        break;
+            //    case FormStartPosition.CenterScreen:
+            //        if (IsMdiChild)
+            //        {
+            //            CenterToParent();
+            //        }
+            //        else
+            //        {
+            //            CenterToScreen();
+            //        }
+            //        break;
+            //}
 
             RemoveCloseButton();
 
@@ -502,7 +502,7 @@ namespace MetroFramework.Forms
                 UpdateWindowButtonPosition();
             }
 
-            CreateShadow();
+            //CreateShadow();
         }
 
         protected override void OnActivated(EventArgs e)
@@ -1173,26 +1173,26 @@ namespace MetroFramework.Forms
 
             protected override void OnDeactivate(EventArgs e)
             {
-                base.OnDeactivate(e);
-                isBringingToFront = true;
+                //base.OnDeactivate(e);
+                //isBringingToFront = true;
             }
 
             private void OnTargetFormActivated(object sender, EventArgs e)
             {
-                if (Visible) Update();
-                if (isBringingToFront)
-                {
-                    Visible = true;
-                    isBringingToFront = false;
-                    return;
-                }
-                BringToFront();
+                //if (Visible) Update();
+                //if (isBringingToFront)
+                //{
+                //    Visible = true;
+                //    isBringingToFront = false;
+                //    return;
+                //}
+                //BringToFront();
             }
 
             private void OnTargetFormVisibleChanged(object sender, EventArgs e)
             {
-                Visible = TargetForm.Visible && TargetForm.WindowState != FormWindowState.Minimized;
-                Update();
+                //Visible = TargetForm.Visible && TargetForm.WindowState != FormWindowState.Minimized;
+                //Update();
             }
 
             private long lastResizedOn;
@@ -1201,42 +1201,42 @@ namespace MetroFramework.Forms
 
             private void OnTargetFormResizeBegin(object sender, EventArgs e)
             {
-                lastResizedOn = DateTime.Now.Ticks;
+                //lastResizedOn = DateTime.Now.Ticks;
             }
 
             private void OnTargetFormMove(object sender, EventArgs e)
             {
-                if (!TargetForm.Visible || TargetForm.WindowState != FormWindowState.Normal)
-                {
-                    Visible = false;
-                }
-                else
-                {
-                    Bounds = GetShadowBounds();
-                }
+                //if (!TargetForm.Visible || TargetForm.WindowState != FormWindowState.Normal)
+                //{
+                //    Visible = false;
+                //}
+                //else
+                //{
+                //    Bounds = GetShadowBounds();
+                //}
             }
 
             private void OnTargetFormResize(object sender, EventArgs e)
             {
-                ClearShadow();
+                //ClearShadow();
             }
 
             private void OnTargetFormSizeChanged(object sender, EventArgs e)
             {
-                Bounds = GetShadowBounds();
+                //Bounds = GetShadowBounds();
 
-                if (IsResizing)
-                {
-                    return;
-                }
+                //if (IsResizing)
+                //{
+                //    return;
+                //}
 
-                PaintShadowIfVisible();
+                //PaintShadowIfVisible();
             }
 
             private void OnTargetFormResizeEnd(object sender, EventArgs e)
             {
-                lastResizedOn = 0;
-                PaintShadowIfVisible();
+                //lastResizedOn = 0;
+                //PaintShadowIfVisible();
             }
 
             private void PaintShadowIfVisible()
